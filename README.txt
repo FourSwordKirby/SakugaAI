@@ -10,6 +10,10 @@ Create network architecture by borrowing from: [Sohil]
 		http://cs229.stanford.edu/proj2016/report/KorenMendaSharma-ConvolutionalNeuralNetworkForVideoFrameCompression-report.pdf
 
 
+Installing OpenCV:
+install the appropriate wheel here: http://www.lfd.uci.edu/~gohlke/pythonlibs/#opencv
+	I used opencv_python-3.2.0+contrib-cp35-cp35m-win_amd64.whl because I have 64-bit architecture and CPython 3.5
+
 Basic structure (advice given by Zico):
 
 Take x frames, predict inbetween frame
