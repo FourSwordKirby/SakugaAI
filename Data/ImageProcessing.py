@@ -19,7 +19,7 @@ def EdgeDetect(filename):
     cv2.waitKey(0)
 
 def OpticalFlow():
-    cap = cv2.VideoCapture("test.avi")
+    cap = cv2.VideoCapture("test2.avi")
     ret, frame1 = cap.read()
     prvs = cv2.cvtColor(frame1,cv2.COLOR_BGR2GRAY)
     hsv = np.zeros_like(frame1)

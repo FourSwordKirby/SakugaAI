@@ -1,0 +1,283 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{nty/global/}
+  \entry{andrade2005challenge}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=AG}{%
+         family={Andrade},
+         familyi={A\bibinitperiod},
+         given={Gustavo},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=RG}{%
+         family={Ramalho},
+         familyi={R\bibinitperiod},
+         given={Geber},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Santana},
+         familyi={S\bibinitperiod},
+         given={Hugo},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=CV}{%
+         family={Corruble},
+         familyi={C\bibinitperiod},
+         given={Vincent},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{AG+1}
+    \strng{fullhash}{AGRGSHCV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Intelligent Agent Technology, IEEE/WIC/ACM International
+  Conference on}
+    \field{pages}{194\bibrangedash 200}
+    \field{title}{Challenge-sensitive action selection: an application to game
+  balancing}
+    \field{year}{2005}
+  \endentry
+
+  \entry{hunicke2004ai}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=HR}{%
+         family={Hunicke},
+         familyi={H\bibinitperiod},
+         given={Robin},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CV}{%
+         family={Chapman},
+         familyi={C\bibinitperiod},
+         given={Vernell},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HRCV1}
+    \strng{fullhash}{HRCV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Proceedings of the Challenges in Game AI Workshop,
+  Nineteenth National Conference on Artificial Intelligence (AAAI '04)}
+    \field{title}{AI for Dynamic Difficulty Adjustment in Games}
+    \field{year}{2004}
+  \endentry
+
+  \entry{liu2009dynamic}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LC}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Changchun},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=AP}{%
+         family={Agrawal},
+         familyi={A\bibinitperiod},
+         given={Pramila},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Sarkar},
+         familyi={S\bibinitperiod},
+         given={Nilanjan},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Shuo},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{LC+1}
+    \strng{fullhash}{LCAPSNCS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{number}{6}
+    \field{pages}{506\bibrangedash 529}
+    \field{title}{Dynamic difficulty adjustment in computer games through
+  real-time anxiety-based affective feedback}
+    \field{volume}{25}
+    \field{journaltitle}{International Journal of Human-Computer Interaction}
+    \field{year}{2009}
+  \endentry
+
+  \entry{missura2009player}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=MO}{%
+         family={Missura},
+         familyi={M\bibinitperiod},
+         given={Olana},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=GT}{%
+         family={G{\"a}rtner},
+         familyi={G\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{MOGT1}
+    \strng{fullhash}{MOGT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{booktitle}{International Conference on Discovery Science}
+    \field{pages}{197\bibrangedash 211}
+    \field{title}{Player modeling for intelligent difficulty adjustment}
+    \field{year}{2009}
+  \endentry
+
+  \entry{rpgbalance}{online}{}
+    \name{author}{1}{}{%
+      {{hash=SJ}{%
+         family={Sawyer},
+         familyi={S\bibinitperiod},
+         given={Josh},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SJ1}
+    \strng{fullhash}{SJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{How To Balance An RPG}
+    \verb{url}
+    \verb http://kotaku.com/how-to-balance-an-rpg-1625516832
+    \endverb
+  \endentry
+
+  \entry{spronck2003online}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SP}{%
+         family={Spronck},
+         familyi={S\bibinitperiod},
+         given={Pieter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=SKI}{%
+         family={Sprinkhuizen-Kuyper},
+         familyi={S\bibinitperiod-K\bibinitperiod},
+         given={Ida},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=PE}{%
+         family={Postma},
+         familyi={P\bibinitperiod},
+         given={Eric},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SPSKIPE1}
+    \strng{fullhash}{SPSKIPE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Proceedings of the 4th International Conference on
+  Intelligent Games and Simulation}
+    \field{pages}{93\bibrangedash 100}
+    \field{title}{Online adaptation of game opponent AI in simulation and in
+  practice}
+    \field{year}{2003}
+  \endentry
+
+  \entry{van2007reinforcement}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=VHH}{%
+         family={Van\bibnamedelima Hasselt},
+         familyi={V\bibinitperiod\bibinitdelim H\bibinitperiod},
+         given={Hado},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=WMA}{%
+         family={Wiering},
+         familyi={W\bibinitperiod},
+         given={Marco\bibnamedelima A},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{VHHWMA1}
+    \strng{fullhash}{VHHWMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{booktitle}{Approximate Dynamic Programming and Reinforcement
+  Learning, 2007. ADPRL 2007. IEEE International Symposium on}
+    \field{pages}{272\bibrangedash 279}
+    \field{title}{Reinforcement learning in continuous action spaces}
+    \field{year}{2007}
+  \endentry
+
+  \entry{zook2012temporal}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=ZA}{%
+         family={Zook},
+         familyi={Z\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RMO}{%
+         family={Riedl},
+         familyi={R\bibinitperiod},
+         given={Mark\bibnamedelima O},
+         giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Citeseer}%
+    }
+    \strng{namehash}{ZARMO1}
+    \strng{fullhash}{ZARMO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{booktitle}{AIIDE}
+    \field{title}{A Temporal Data-Driven Player Model for Dynamic Difficulty
+  Adjustment.}
+    \field{year}{2012}
+  \endentry
+\endsortlist
+\endinput
