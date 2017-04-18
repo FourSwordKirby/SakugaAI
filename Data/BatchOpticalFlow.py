@@ -55,6 +55,8 @@ nxt = cv2.cvtColor(frame3,cv2.COLOR_BGR2GRAY)
 flow = cv2.calcOpticalFlowFarneback(prvs,nxt, None, 0.5, 3, 15, 3, 5, 1.2, 0)
 img = Image.fromarray(np.asarray(warp_flow(nxt, flow), dtype=np.uint8))
 img.save('frameinterp.png')
+img = Image.fromarray(np.asarray(draw_flow(nxt, flow), dtype=np.uint8))
+img.save('frameflow.png')
 
 # cv2.imshow('frame1', frame1)
 # cv2.imshow('frame3', frame3)
