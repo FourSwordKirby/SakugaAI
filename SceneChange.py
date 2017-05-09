@@ -6,6 +6,7 @@ from PIL import Image
 import json
 from pprint import pprint
 import glob, os, sys
+import shutil
 
 class SceneDetector(object):
     """Base SceneDetector class to implement a scene detection algorithm."""
@@ -66,49 +67,74 @@ class ContentDetector(SceneDetector):
         return
 
 detector = ContentDetector()
-f1 = cv2.imread("true_data\group1/hibike_13_middle.png")
-f2 = cv2.imread("true_data\group1/hibike_13_end.png")
-print(detector.process_frame(f1, f2))
 
-cwd = os.getcwd() + "/true_data"
-subdirs = [x[0] for x in os.walk(cwd)] 
-subdirs = subdirs[1:]
-
+similar_dirs = []
 bad_dirs = []
 diff_stats = []
 
-for i in range(len(subdirs)):
-    if(i % 20 == 0):
-        print(i)
+root= os.getcwd() + "/Data"
 
-    subdir = subdirs[i]
-    frames = []
+for episode in os.listdir(root):
+    episode_dir = os.path.join(root, episode)
+    if os.path.isdir(episode_dir):
+        i = 0
+        for group in os.listdir(episode_dir):
+            group_dir = os.path.join(episode_dir, group)
 
-    for filename in os.listdir(subdir):
-        if "edge" in filename:
-            continue
-        frame = cv2.imread(subdir + "/" + filename)
-        frames.append(frame)
+            if os.path.isdir(group_dir):
+                i+=1
+                if(i % 200 == 0):
+                    print(i)
 
-    assert(len(frames) == 3)
+                frames = []
+                for filename in os.listdir(group_dir):
+                    if "edge" in filename or "flow" in filename:
+                        continue
+                    frame = cv2.imread(group_dir + "/" + filename)
+                    frames.append(frame)
 
-    # print(detector.process_frame(frames[0], frames[1]))
-    # print(detector.process_frame(frames[1], frames[2]))
-    # print(detector.process_frame(frames[0], frames[2]))
+                assert(len(frames) == 3)
 
-    diff_stats.append(detector.process_frame(frames[0], frames[1]))
-    diff_stats.append(detector.process_frame(frames[1], frames[2]))
-    diff_stats.append(detector.process_frame(frames[0], frames[2]))
+                # print(detector.process_frame(frames[0], frames[1]))
+                # print(detector.process_frame(frames[1], frames[2]))
+                # print(detector.process_frame(frames[0], frames[2]))
 
-    #very basic, if one frame of the 3 frames is very different from another
-    #we assume a cut happened
-    if(detector.process_frame(frames[0], frames[1]) > 30.0 or
-        detector.process_frame(frames[1], frames[2]) > 30.0 or
-        detector.process_frame(frames[0], frames[2]) > 30.0):
-        bad_dirs.append(subdir)
-        print(subdir)
+                diff_stats.append(detector.process_frame(frames[0], frames[1]))
+                diff_stats.append(detector.process_frame(frames[1], frames[2]))
+                diff_stats.append(detector.process_frame(frames[0], frames[2]))
 
+                #very basic, if one frame of the 3 frames is very different from another
+                #we assume a cut happened
+                if(detector.process_frame(frames[0], frames[1]) > 30.0 or
+                    detector.process_frame(frames[1], frames[2]) > 30.0 or
+                    detector.process_frame(frames[0], frames[2]) > 30.0):
+                    bad_dirs.append((group_dir, episode))
+
+                if(detector.process_frame(frames[0], frames[1]) <= 0.1 and
+                    detector.process_frame(frames[1], frames[2]) <= 0.1 and
+                    detector.process_frame(frames[0], frames[2]) <= 0.1):
+                    similar_dirs.append((group_dir, episode))
+        break
+
+bad_loc = os.getcwd() + "/Bad_Data"
+for bad_dir in bad_dirs:
+    dir_name = bad_dir[0]
+    episode_name = bad_dir[1]
+    if not os.path.exists(bad_loc + "/" + episode_name):
+        os.makedirs(bad_loc + "/" + episode_name)
+    shutil.move(dir_name, bad_loc + "/" + episode_name)
+
+    
+sim_loc = os.getcwd() + "/Similar_Data"
+for sim_dir in similar_dirs:
+    dir_name = sim_dir[0]
+    episode_name = sim_dir[1]
+    if not os.path.exists(sim_loc + "/" + episode_name):
+        os.makedirs(sim_loc + "/" + episode_name)
+    shutil.move(dir_name, sim_loc + "/" + episode_name)
+
+print(len(bad_dirs))
 print(numpy.mean(diff_stats))
 print(numpy.std(diff_stats))
-return bad_dirs
 
+print(len(similar_dirs))
