@@ -110,9 +110,9 @@ for episode in os.listdir(root):
                     detector.process_frame(frames[0], frames[2]) > 30.0):
                     bad_dirs.append((group_dir, episode))
 
-                if(detector.process_frame(frames[0], frames[1]) <= 0.1 and
-                    detector.process_frame(frames[1], frames[2]) <= 0.1 and
-                    detector.process_frame(frames[0], frames[2]) <= 0.1):
+                if(detector.process_frame(frames[0], frames[1]) <= 0.05 and
+                    detector.process_frame(frames[1], frames[2]) <= 0.05 and
+                    detector.process_frame(frames[0], frames[2]) <= 0.05):
                     similar_dirs.append((group_dir, episode))
         break
 
@@ -124,7 +124,7 @@ for bad_dir in bad_dirs:
         os.makedirs(bad_loc + "/" + episode_name)
     shutil.move(dir_name, bad_loc + "/" + episode_name)
 
-    
+
 sim_loc = os.getcwd() + "/Similar_Data"
 for sim_dir in similar_dirs:
     dir_name = sim_dir[0]
