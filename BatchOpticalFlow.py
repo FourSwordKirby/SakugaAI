@@ -4,10 +4,12 @@ from PIL import Image
 import pdb
 import os
 
+flow_adjust = 0.3
+
 def draw_flow(img, flow, step=16):
     h, w = img.shape[:2]
     y, x = np.mgrid[step/2:h:step, step/2:w:step].reshape(2,-1).astype(int)
-    fx, fy = flow[y,x].T
+    fx, fy = flow[y,x].T * flow_adjust
     lines = np.vstack([x, y, x+fx, y+fy]).T.reshape(-1, 2, 2)
     lines = np.int32(lines + 0.5)
     vis = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
@@ -18,14 +20,14 @@ def draw_flow(img, flow, step=16):
 
 def warp_flow(img, flow):
     h, w = flow.shape[:2]
-    flow = -flow
+    flow = -flow * flow_adjust
     flow[:,:,0] += np.arange(w)
     flow[:,:,1] += np.arange(h)[:,np.newaxis]
     res = cv2.remap(img, flow, None, cv2.INTER_LINEAR)
     return res
 
-# frame1 = cv2.imread('norm1.png')
-# frame3 = cv2.imread('norm3.png')
+# frame1 = cv2.imread('f1.png')
+# frame3 = cv2.imread('f3.png')
 
 # prvs = cv2.cvtColor(frame1,cv2.COLOR_BGR2GRAY)
 # nxt = cv2.cvtColor(frame3,cv2.COLOR_BGR2GRAY)
@@ -35,6 +37,27 @@ def warp_flow(img, flow):
 # img = Image.fromarray(np.asarray(draw_flow(nxt, flow), dtype=np.uint8))
 # img.save('frameflow.png')
 
+# def EdgeDetect(filename):
+#     img = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
+#     rows, cols = img.shape
+
+#     canny = cv2.Canny(img, 50, 240)
+
+#     # cv2.imshow('Canny', canny)
+#     return Image.fromarray(canny)
+
+
+# frame1 = cv2.imread('edge1.png')
+# frame3 = cv2.imread('edge3.png')
+# prvs = cv2.cvtColor(frame1,cv2.COLOR_BGR2GRAY)
+# nxt = cv2.cvtColor(frame3,cv2.COLOR_BGR2GRAY)
+# flow = cv2.calcOpticalFlowFarneback(prvs, nxt, None, 0.5, 3, 15, 3, 5, 1.2, 0)
+# img = Image.fromarray(np.asarray(warp_flow(nxt, flow), dtype=np.uint8))
+# img.save('edge_frameinterp.png')
+# img = Image.fromarray(np.asarray(draw_flow(nxt, flow), dtype=np.uint8))
+# img.save('edge_frameflow.png')
+
+a = 1/0
 # cv2.imshow('frame1', frame1)
 # cv2.imshow('frame3', frame3)
 # cv2.imshow('flow', draw_flow(nxt, flow))
