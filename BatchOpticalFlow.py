@@ -4,7 +4,7 @@ from PIL import Image
 import pdb
 import os
 
-flow_adjust = 0.3
+flow_adjust = 1
 
 def draw_flow(img, flow, step=16):
     h, w = img.shape[:2]
@@ -57,7 +57,6 @@ def warp_flow(img, flow):
 # img = Image.fromarray(np.asarray(draw_flow(nxt, flow), dtype=np.uint8))
 # img.save('edge_frameflow.png')
 
-a = 1/0
 # cv2.imshow('frame1', frame1)
 # cv2.imshow('frame3', frame3)
 # cv2.imshow('flow', draw_flow(nxt, flow))
@@ -102,11 +101,11 @@ for item in os.listdir(root):
                 before_frame = cv2.cvtColor(before_frame,cv2.COLOR_BGR2GRAY)
                 end_frame = cv2.cvtColor(end_frame,cv2.COLOR_BGR2GRAY)
                 flow = cv2.calcOpticalFlowFarneback(before_frame,end_frame, None, 0.5, 3, 15, 3, 5, 1.2, 0)
-                img = Image.fromarray(np.asarray(warp_flow(end_frame, flow), dtype=np.uint8))
+                img = Image.fromarray(np.asarray(warp_flow(before_frame, flow), dtype=np.uint8))
                 img.save(group_dir + "/" + 'normal_flow.png')
 
                 before_edge_frame = cv2.cvtColor(before_edge_frame,cv2.COLOR_BGR2GRAY)
                 end_edge_frame = cv2.cvtColor(end_edge_frame,cv2.COLOR_BGR2GRAY)
                 flow = cv2.calcOpticalFlowFarneback(before_edge_frame,end_edge_frame, None, 0.5, 3, 15, 3, 5, 1.2, 0)
-                img = Image.fromarray(np.asarray(warp_flow(end_edge_frame, flow), dtype=np.uint8))
+                img = Image.fromarray(np.asarray(warp_flow(before_edge_frame, flow), dtype=np.uint8))
                 img.save(group_dir + "/" + 'edge_flow.png')
